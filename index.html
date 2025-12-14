@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>睿哥神勇</title>
+    <meta name="description" content="睿哥神勇">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Background Layer */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .bg-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('raybro66_bg.webp');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px);
+            transform: scale(1.1);
+            /* Prevent blurred edges */
+        }
+
+        .bg-sharp {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            /* If the image is wider than screen, we want to center it. 
+               object-fit: contain ensures it fits within. 
+               But user said "Full Height". 
+               If we set height: 100%, and width: auto, it will be full height.
+               If it's wider than screen, it will overflow centered. 
+               To ensure it doesn't overflow and show scrollbars, parent has overflow: hidden.
+            */
+            max-width: none;
+            /* Allow it to be wider than screen if needed to maintain aspect ratio with full height */
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-section {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 10vh;
+        }
+
+        .bottom-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 5vh;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 328px;
+            max-width: 80%;
+            height: auto;
+            object-fit: contain;
+            /* "Middle top" - centering in top section achieves this */
+        }
+
+        .btn-link {
+            display: block;
+            width: auto;
+            text-decoration: none;
+            transition: transform 0.1s ease;
+        }
+
+        .btn-link:active {
+            transform: scale(0.95);
+        }
+
+        .btn-img {
+            display: block;
+            width: 280px;
+            /* Adjust based on visual balance */
+            max-width: 80vw;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Background -->
+        <div class="bg-layer">
+            <div class="bg-blur"></div>
+            <img src="raybro66_bg.webp" alt="" class="bg-sharp">
+        </div>
+
+        <!-- Content -->
+        <div class="content-layer">
+            <div class="top-section">
+                <img src="raybro66.webp" alt="睿哥神勇" class="logo">
+            </div>
+            <div class="bottom-section">
+                <a href="https://www.twitch.tv/rchu0922" class="btn-link" target="_blank">
+                    <img src="twitch_btn.webp" alt="Twitch直播" class="btn-img">
+                </a>
+                <a href="https://lin.ee/BdcoMvf" class="btn-link" target="_blank">
+                    <img src="line_btn.webp" alt="加入LINE好友" class="btn-img">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
